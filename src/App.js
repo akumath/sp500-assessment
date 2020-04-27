@@ -58,12 +58,14 @@ function App() {
         only on the price returns of the index, dividends play an important
         factor in overall investment returns.
       </p>
-      <SliderFilter
-        handleSliderChange={handleSliderChange}
-        sliderMinValue={sliderMinValue}
-        sliderMaxValue={sliderMaxValue}
-      />
-      <SAndPList spHistoryData={filteredData} />
+      {sliderMinValue && setSliderMaxValue ? (
+        <SliderFilter
+          handleSliderChange={handleSliderChange}
+          sliderMinValue={sliderMinValue}
+          sliderMaxValue={sliderMaxValue}
+        />
+      ) : null}
+      {filteredData.length ? <SAndPList spHistoryData={filteredData} /> : null}
     </div>
   );
 }

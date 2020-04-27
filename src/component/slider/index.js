@@ -9,7 +9,6 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 const SliderFilter = (props) => {
   const { handleSliderChange, sliderMinValue, sliderMaxValue } = props;
-  const test = 2019;
   const handleChange = (value) => {
     handleSliderChange(value);
   };
@@ -18,8 +17,8 @@ const SliderFilter = (props) => {
       <p>Filter by year range</p>
       <Range
         min={sliderMinValue}
-        max={test}
-        defaultValue={[sliderMinValue, test]}
+        max={sliderMaxValue}
+        defaultValue={[sliderMinValue, sliderMaxValue]}
         tipFormatter={(value) => `${value}`}
         onChange={handleChange}
       />
@@ -28,9 +27,9 @@ const SliderFilter = (props) => {
 };
 
 SliderFilter.propTypes = {
-  handleSliderChange: PropTypes.func,
-  sliderMinValue: PropTypes.number,
-  sliderMaxValue: PropTypes.number,
+  handleSliderChange: PropTypes.func.isRequired,
+  sliderMinValue: PropTypes.number.isRequired,
+  sliderMaxValue: PropTypes.number.isRequired,
 };
 
 export default SliderFilter;
